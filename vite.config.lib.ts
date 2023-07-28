@@ -22,7 +22,7 @@ export default defineConfig({
     lib: {
       entry: 'components/index.ts',
       name: 'dux-ui',
-      fileName: 'dux-ui',
+      fileName: 'index',
       formats: ['es', 'cjs'],
     },
     rollupOptions: {

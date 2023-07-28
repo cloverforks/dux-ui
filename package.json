@@ -2,7 +2,7 @@
   "name": "@duxweb/dux-ui",
   "version": "0.0.1",
   "type": "module",
-  "main": "./dist/dux.umd.js",
+  "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "scripts": {
     "dev": "storybook dev -p 6006",
@@ -11,6 +11,9 @@
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "resolutions": {
     "jackspeak": "2.1.1"

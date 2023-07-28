@@ -22,12 +22,12 @@ Warning: This version is for development purposes only. Some features are still 
 
 ## 🎯 Features
 
-- ✨ Unified design standards, using a unified and lightweight design style for the theme, without the need for complex UI customization.
-- 🚀 Ark, Radix, using high-quality basic unstyled libraries, provides a stable and reliable base guarantee.
-- 🎨 UnoCSS customization, based on UnoCSS as CSS processor, development with Unocss presets, use of UI libraries while freely using UnoCSS.
-- 📦 Ahook, which uses Ahook as a base Hook to make components more reliable.
-- 🛠️ TypeScript, written in TypeScript, is type-safe and fully parameter-aware.
-- 📱 Accessibility support, each component supports ARIA keyboard accessibility, easy to use for special populations.
+- ✨ using a unified and lightweight design style for the theme.
+- 🚀 using high-quality basic unstyled libraries,
+- 🎨 based on UnoCSS as CSS processor.
+- 📦 which uses Ahook as a base Hook.
+- 🛠️ TypeScript, type-safe and fully parameter-aware.
+- 📱 Accessibility support, each component supports ARIA keyboard accessibility.
 
 
 ##  ⚡ Installation

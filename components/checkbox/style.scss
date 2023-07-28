@@ -1,0 +1,121 @@
+@mixin checkbox {
+  $root: &;
+
+  @apply flex h-5 w-5 items-center justify-center rounded border dark:bg-black transition-all;
+  @apply focus:outline-none focus-visible:(ring-3 ring-primary/25);
+  @apply border-gray dark:border-black-light;
+  @apply text-white;
+
+  &[data-state~="checked"] {
+    @extend #{$root}-checked;
+  }
+
+  &[data-state~="indeterminate"] {
+    @extend #{$root}-indeterminate;
+  }
+
+  &[data-state~="unchecked"] {
+    &::after {
+      @apply hidden;
+    }
+  }
+
+  &[data-disabled] {
+    @extend #{$root}-disabled;
+  }
+
+  &::after {
+    @apply i-tabler:check w-3 h-3 content-empty;
+  }
+
+  &-indicator {
+    @apply w-2 h-2 rounded-full bg-white dark:bg-black;
+  }
+
+  &-checked, &-indeterminate {
+    @apply bg-primary border-primary dark:bg-primary;
+  }
+
+  &-disabled {
+    @apply opacity-60;
+  }
+
+  &-indeterminate {
+    &::after {
+      @apply i-tabler:minus w-3 h-3;
+    }
+  }
+
+  &-warp {
+    @apply flex gap-2 items-center cursor-pointer text-sm;
+  }
+
+  &-group {
+    @apply flex flex-col flex-wrap gap-6 text-sm text-black dark:text-gray-dark;
+
+    &-horizontal {
+      @apply md:flex-row;
+    }
+
+    &-vertical {
+      @apply  gap-2;
+    }
+  
+    &-extend {
+      #{$root} {
+        @apply absolute opacity-0;
+
+        &[data-state~="checked"] {
+          & ~ #{$root}-inner {
+            @apply border-primary bg-primary/5;
+          }
+          
+          &:focus-visible {
+            & ~ #{$root}-inner {
+              @apply ring-3 ring-primary/25;
+            }
+          }
+        }
+        &[data-disabled] {
+          & ~ #{$root}-inner {
+            @apply opacity-70;
+          }
+        }
+      }
+
+      #{$root}-inner {
+        @apply flex-grow border rounded-lg px-3 py-3  flex gap-3 items-center relative overflow-hidden transition-all;
+        @apply border-gray dark:border-black-light;
+      }
+
+      #{$root}-content {
+        @apply  flex flex-col gap-1;
+      }
+
+      #{$root}-label {
+        @apply text-base;
+      }
+
+      #{$root}-desc {
+        @apply text-black/50 dark:text-gray/50;
+      }
+
+      #{$root}-checked {
+        @apply absolute -right-5.5 -top-5.5 transform rotate-45 bg-primary w-11 h-11 text-white;
+        &-icon {
+          @apply transform -rotate-45 absolute right-3.5 w-4 h-4 bottom-0;
+        }
+      }
+    }
+    
+    &-fill {
+      #{$root}-warp {
+        @apply flex-grow;
+      }
+    }
+  }
+}
+
+.app-checkbox {
+  @include checkbox;
+}

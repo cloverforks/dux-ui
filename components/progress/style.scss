@@ -1,0 +1,119 @@
+
+@mixin progress {
+  $root: &;
+  @apply flex gap-2;
+
+  &-info {
+    @apply text-sm text-black/50 dark:text-gray/50;
+  }
+
+  &-line {
+    @apply flex-row;
+
+    #{$root}-gradual {
+
+      #{$root}-inner {
+        @apply bg-gradient-to-r;
+      }
+    }
+  }
+
+  &-bar {
+    @apply flex-col-reverse items-center h-full;
+
+    #{$root}-stripe{
+      @apply flex items-end;
+    }
+
+    #{$root}-gradual {
+      #{$root}-inner {
+        @apply bg-gradient-to-t;
+      }
+    }
+  }
+
+  &-stripe {
+    @apply relative overflow-hidden rounded-full w-full h-full  bg-black/5 dark:bg-gray/10;
+
+    #{$root}-inner {
+      @apply h-full w-full flex-1 transition-all relative flex items-center overflow-hidden;
+    }
+    
+    &#{$root}-primary {
+      #{$root}-inner {
+        @apply bg-primary;
+      }
+    }
+
+    &#{$root}-secondary {
+      #{$root}-inner {
+        @apply bg-secondary;
+      }
+    }
+    &#{$root}-info {
+      #{$root}-inner {
+        @apply bg-info;
+      }
+    }
+    &#{$root}-warn {
+      #{$root}-inner {
+        @apply bg-warning;
+      }
+    }
+    &#{$root}-danger {
+      #{$root}-inner {
+        @apply bg-danger;
+      }
+    }
+    &#{$root}-success {
+      #{$root}-inner {
+        @apply bg-success;
+      }
+    }
+
+    &#{$root}-gradual {
+      #{$root}-inner {
+        @apply from-primary text-transparent to-info;
+      }
+    }
+  }
+
+
+  &-circle {
+    &#{$root}-primary {
+      #{$root}-inner {
+        @apply text-primary;
+      }
+    }
+
+    &#{$root}-secondary {
+      #{$root}-inner {
+        @apply text-secondary;
+      }
+    }
+    &#{$root}-info {
+      #{$root}-inner {
+        @apply text-info;
+      }
+    }
+    &#{$root}-warn {
+      #{$root}-inner {
+        @apply text-warning;
+      }
+    }
+    &#{$root}-danger {
+      #{$root}-inner {
+        @apply text-danger;
+      }
+    }
+    &#{$root}-success {
+      #{$root}-inner {
+        @apply text-success;
+      }
+    }
+  }
+}
+
+.app-progress {
+  @include progress;
+}

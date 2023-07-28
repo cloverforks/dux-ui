@@ -1,0 +1,35 @@
+.app-card-media {
+  @apply flex flex-col;
+
+}
+.app-card-media-header {
+  @apply relative overflow-hidden rounded-t-lg;
+}
+
+.app-card-media-image {
+  @apply rounded-t-lg rounded-b-none;
+}
+
+.app-card-media-tags {
+  @apply absolute right-4 top-4;
+}
+
+.app-card-media-tags-item {
+  @apply cursor-default text-sm rounded-full bg-black/50 bg-opacity-50 px-3 py-0.5 text-gray-200;
+}
+
+.app-card-media-body {
+  @apply flex items-center gap-4 p-4;
+}
+
+.app-card-media-content {
+  @apply w-1 flex flex-grow flex-col gap-2;
+}
+
+.app-card-media-title {
+  @apply truncate text-black dark:text-gray-light;
+}
+
+.app-card-media-desc {
+ @apply truncate text-black/50 dark:text-gray-dark cursor-default text-sm; 
+}

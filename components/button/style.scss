@@ -1,0 +1,192 @@
+@mixin btn-style($textColor, $bgColor, $borderColor, $hoverTextColor, $hoverBgColor, $hoverBorderColor, $outlineColor) {
+  @apply text-#{$textColor} bg-#{$bgColor} border-#{$borderColor} shadow-#{$outlineColor}/40 outline-none;
+  @apply hover:(text-#{$hoverTextColor} bg-#{$hoverBgColor} border-#{$hoverBorderColor});
+  @apply outline-0 outline-offset-0 outline-#{$outlineColor}/40;
+  @apply focus-visible:outline-3;
+
+  @apply disabled:(text-#{$textColor} bg-#{$bgColor} border-#{$borderColor} shadow-none);
+  @apply disabled:(opacity-50);
+}
+@mixin btn-dark-style($textColor, $bgColor, $borderColor, $hoverTextColor, $hoverBgColor, $hoverBorderColor, $outlineColor) {
+  @apply dark:(text-#{$textColor} bg-#{$bgColor} border-#{$borderColor} shadow-#{$outlineColor}/60);
+  @apply dark:hover:(text-#{$hoverTextColor} bg-#{$hoverBgColor} border-#{$hoverBorderColor});
+  @apply dark:focus-visible:outline-3;
+  @apply dark:outline-#{$outlineColor}/40;
+  @apply dark:disabled:(text-#{$textColor} bg-#{$bgColor} border-#{$borderColor});
+  @apply dark:disabled:opacity-70;
+}
+
+@mixin btn-text {
+  @apply bg-opacity-10 hover:bg-opacity-10 focus:bg-opacity-10;
+  @apply dark:bg-opacity-10 dark:hover:bg-opacity-20 dark:focus:bg-opacity-20;
+}
+
+@mixin btn {
+  $root: &;
+
+  @apply border-1 rounded-lg h-10 text-sm transition-all cursor-pointer outline-none;
+  @apply px-6 flex gap-2 items-center justify-center whitespace-nowrap relative overflow-hidden;
+
+  &-general {
+    @apply shadow-md hover:shadow-lg dark:shadow-sm dark:hover:shadow-lg;
+  }
+  &-outline {
+    @apply focus:outline-3;
+  }
+  &-text {
+    @apply border-none;
+  }
+  
+  &-pill {
+    @apply rounded-full;
+  }
+  &-icon {
+    @apply  w-10 h-10 px-0;
+    &-inner {
+      @apply w-4 h-4;
+    }
+  }
+  &-mix {
+      @apply px-4;
+  }
+
+  &-xs {
+    @apply h-6 px-2 text-xs;
+    &#{$root}-mix {
+        @apply px-2;
+    }
+    &#{$root}-icon {
+      @apply w-5 h-5 px-0;
+    }
+    #{$root}-icon-inner {
+      @apply w-3 h-3;
+    }
+  }
+  &-sm {
+    @apply h-8 px-4;
+    &#{$root}-mix {
+        @apply  px-3;
+    }
+    &#{$root}-icon {
+      @apply w-8 h-8 px-0;
+    }
+  }
+  &-lg {
+    @apply h-11 px-8;
+    &#{$root}-mix {
+        @apply px-6;
+    }
+    &#{$root}-icon {
+      @apply  w-11 h-11 px-0;
+    }
+  }
+
+
+  &-default {
+    &#{$root}-general {
+      @include btn-style("black", "white", "gray", "black", "white", "gray-dark", "gray-dark");
+      @include btn-dark-style("gray", "gray/20", "black-light", "gray", "gray/30", "transparent", "black-light");
+    }
+    
+    &#{$root}-outline {
+      @include btn-style("black", "white", "gray-dark", "black", "gray-light", "gray-dark", "gray-dark");
+      @include btn-dark-style("gray-dark", "transparent", "gray/50", "gray", "gray/10", "gray/50", "gray/20");
+    }
+    &#{$root}-text {
+      @include btn-style("black", "transparent", "transparent", "black", "black", "black", "gray-dark");
+      @include btn-dark-style("gray", "transparent", "transparent", "gray", "gray/10", "transparent", "gray/20");
+      @include btn-text();
+    }
+  }
+
+  &-primary {
+    &#{$root}-general {
+      @include btn-style("white", "primary", "primary", "white", "primary", "primary", "primary");
+    }
+    &#{$root}-outline {
+      @include btn-style("primary", "transparent", "primary", "primary", "primary/10", "primary", "primary");
+      @include btn-dark-style("primary-light", "transparent", "primary-light", "primary-light", "primary-light/10", "primary-light", "primary-light");
+    }
+    &#{$root}-text {
+      @include btn-style("primary", "transparent", "transparent", "primary", "primary", "transparent", "primary");
+      @include btn-dark-style("primary-light", "transparent", "transparent", "primary-light", "primary-light", "transparent", "primary-light");
+      @include btn-text();
+    }
+  }
+
+  &-secondary {
+    &#{$root}-general {
+      @include btn-style("white", "secondary", "secondary", "white", "secondary", "secondary", "secondary");
+    }
+    &#{$root}-outline {
+      @include btn-style("secondary", "transparent", "secondary", "secondary", "secondary/10", "secondary", "secondary");
+      @include btn-dark-style("secondary-light", "transparent", "secondary-light", "secondary-light", "secondary-light/10", "secondary-light", "secondary-light");
+    }
+    &#{$root}-text {
+      @include btn-style("secondary", "transparent", "transparent", "secondary", "secondary", "transparent", "secondary");
+      @include btn-dark-style("secondary-light", "transparent", "transparent", "secondary-light", "secondary-light", "transparent", "secondary-light");
+      @include btn-text();
+    }
+  }
+
+  &-info {
+    &#{$root}-general {
+      @include btn-style("white", "info", "info", "white", "info", "info", "info");
+    }
+    &#{$root}-outline {
+      @include btn-style("info", "transparent", "info", "info", "info/10", "info", "info");
+    }
+    &#{$root}-text {
+      @include btn-style("info", "transparent", "transparent", "info", "info", "transparent", "info");
+      @include btn-dark-style("info-light", "transparent", "transparent", "info-light", "info-light", "transparent", "info-light");
+      @include btn-text();
+    }
+  }
+
+  &-warn {
+    &#{$root}-general {
+      @include btn-style("white", "warning", "warning", "white", "warning", "warning", "warning");
+    }
+    &#{$root}-outline {
+      @include btn-style("warning", "transparent", "warning", "warning", "warning/10", "warning", "warning");
+    }
+    &#{$root}-text {
+      @include btn-style("warning", "transparent", "transparent", "warning", "warning", "transparent", "warning");
+      @include btn-text();
+    }
+  }
+
+  &-danger {
+    &#{$root}-general {
+      @include btn-style("white", "danger", "danger", "white", "danger", "danger", "danger");
+    }
+    &#{$root}-outline {
+      @include btn-style("danger", "transparent", "danger", "danger", "danger/10", "danger", "danger");
+      @include btn-dark-style("danger-light", "transparent", "danger-light", "danger-light", "danger-light/10", "danger-light", "danger-light");
+    }
+    &#{$root}-text {
+      @include btn-style("danger-dark", "transparent", "transparent", "danger", "danger", "transparent", "danger");
+      @include btn-dark-style("danger-light", "transparent", "transparent", "danger-light", "danger-light", "transparent", "danger-light");
+      @include btn-text();
+    }
+  }
+
+  &-success {
+    &#{$root}-general {
+      @include btn-style("white", "success", "success", "white", "success", "success", "success");
+    }
+    &#{$root}-outline {
+      @include btn-style("success", "transparent", "success", "success", "success/10", "success", "success");
+      @include btn-dark-style("success-dark", "transparent", "success-dark", "success-dark", "success-dark/10", "success-dark", "success-dark");
+    }
+    &#{$root}-text {
+      @include btn-style("success", "transparent", "transparent", "success", "success", "transparent", "success");
+      @include btn-text();
+    }
+  }
+}
+
+
+.app-btn {
+  @include btn;
+}

@@ -1,0 +1,11 @@
+.app-arrow {
+  @apply relative z-1 -top-0.5px;
+}
+
+.app-arrow-content {
+  @apply fill-white dark:fill-black-light;
+}
+
+.app-arrow-border {
+  @apply stroke-gray-light fill-white dark:fill-black dark:stroke-black-light;
+}

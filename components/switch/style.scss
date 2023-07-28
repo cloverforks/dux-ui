@@ -1,0 +1,24 @@
+.app-switch {
+  @apply relative h-7 w-12 inline-flex flex-shrink-0 cursor-pointer border-3 border-transparent rounded-full bg-gray dark:bg-black-light transition-colors duration-200 ease-in-out outline-none;
+  @apply focus:outline-none focus-visible:(ring-2 ring-dark/25);
+  &[data-state="checked"] {
+    @apply bg-primary focus-visible:ring-primary/25;
+
+    &[data-disabled] {
+      @apply bg-primary/70;
+    }
+  }
+}
+
+.app-switch-checked {
+  @apply pointer-events-none inline-block h-5.5 w-5.5 flex  translate-x-0 translate-x-0 transform items-center justify-center rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out;
+  @apply bg-white dark:bg-gray;
+
+  &[data-state="checked"] {
+    @apply translate-x-5;
+  }
+}
+
+.app-switch-loading {
+  @apply h-4 w-4 fill-gray-dark dark:fill-gray;
+}

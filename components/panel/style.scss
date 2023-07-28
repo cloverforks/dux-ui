@@ -1,0 +1,25 @@
+.app-collapse {
+  @apply px-2 rounded-lg bg-black/5 dark:bg-gray/15;
+}
+.app-collapse-header {
+  @apply h-12 flex items-center  pl-2 pr-1;
+  .app-collapse-title {
+    @apply flex-grow w-1;
+  }
+}
+
+.app-collapse-title {
+  @apply text-base flex-grow w-1 truncate text-black dark:text-gray;
+}
+
+.app-collapse-body {
+  @apply bg-white rounded-lg dark:bg-black-dark text-sm text-black dark:text-gray;
+}
+
+.app-collapse-open {
+  @apply pb-2;
+}
+
+.app-collapse-tools {
+  @apply flex items-center gap-1 text-black/50 dark:text-gray/50;
+}

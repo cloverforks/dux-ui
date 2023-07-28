@@ -1,0 +1,24 @@
+@mixin image {
+  @apply relative overflow-hidden bg-gray-light;
+
+  &-rounded {
+    @apply rounded-lg;
+  }
+  
+  &-circle {
+    @apply rounded-full;
+  }
+  
+  &-inner {
+    @apply h-full w-full object-cover;
+  }
+  
+  &-title {
+    @apply w-full absolute bottom-0 truncate bg-dark-1 bg-opacity-50 px-2 py-1 text-center text-xs text-white;
+  }
+}
+
+.app-image {
+  @include image;
+}
+

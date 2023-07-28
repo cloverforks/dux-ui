@@ -1,0 +1,145 @@
+@mixin select {
+  $root: &;
+  @apply relative text-sm;
+  &-arrow {
+    @apply flex items-center px-1 absolute h-full right-1 pointer-events-none text-black/50 dark:text-gray/50;
+  }
+  &-clear {
+    @apply flex items-center px-1 absolute h-full right-6;
+  }
+
+  &-selection-placeholder {
+    @apply text-placeholder;
+  }
+
+  &-disabled {
+    #{$root}-selector {
+      @apply opacity-50;
+    }
+    #{$root}-arrow {
+      @apply opacity-50;
+    }
+  }
+
+
+  &-selection-search-input {
+    @apply appearance-none border-none outline-none;
+    &::-webkit-search-cancel-button {
+      @apply appearance-none hidden;
+    }
+  }
+
+  &-selector {
+    @apply flex-grow relative flex items-center w-1 pl-3 pr-12;
+  }
+
+  &-multiple {
+    #{$root}-selector {
+      @apply pl-1.5;
+    }
+
+    #{$root}-selection {
+      &-placeholder {
+        @apply absolute left-4 pointer-events-none;
+      }
+
+      &-overflow {
+        @apply flex-grow relative flex flex-wrap items-center gap-1 py-1;
+        &-item {
+          @apply h-full;
+          &-suffix {
+            @apply pl-2;
+          }
+        }
+      }
+
+      &-item {
+        @apply border px-2 py-1 rounded-lg flex gap-2 items-center bg-primary/10 border-primary text-primary-dark dark:(text-primary border-primary);
+
+        &-content {
+          @apply flex items-center gap-2 text-sm;
+        }
+
+        &-remove {
+          @apply flex items-center justify-center;
+          &-icon {
+          }
+        }
+      }
+
+      &-search {
+        @apply relative;
+
+        &-input {
+          @apply;
+        }
+
+        &-mirror {
+          @apply absolute top-0 left-0 invisible;
+        }
+      }
+
+    }
+  }
+
+  &-single {
+
+    @apply flex;
+
+    #{$root}-selection-search {
+      @apply w-full h-full;
+    }
+
+    #{$root}-selection-search-input {
+      @apply w-full h-full;
+    }
+
+    #{$root}-selection-item,
+    #{$root}-selection-placeholder {
+      @apply absolute pointer-events-none;
+    }
+  }
+
+  &-item {
+    @apply p-2 truncate;
+
+    &-option {
+      @apply text-block flex items-center;
+
+      &-content {
+        @apply flex-grow w-1;
+      }
+
+      &-state {
+        @apply text-primary-dark;
+      }
+
+      &-selected {
+        .app-media-text-title {
+          @apply text-primary-dark font-semibold;
+        }
+      }
+
+      &-active {
+        @apply bg-gray-light dark:bg-black-light;
+      }
+    }
+
+    &-empty {
+
+    }
+  }
+
+
+  &-dropdown  {
+    @apply absolute py-1 z-1;
+    &-hidden {
+      @apply hidden;
+    }
+  }
+
+}
+
+.app-select {
+  @include select;
+}

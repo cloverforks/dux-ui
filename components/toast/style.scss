@@ -1,0 +1,58 @@
+@mixin toast {
+  $root: &;
+  @apply relative w-100  rounded-lg shadow-md ring-1 ring-gray text-sm flex gap-2 justify-center items-center  cursor-default focus:outline-none focus:ring-gray-dark bg-white  dark:(bg-black ring-black-light/50 focus:ring-black-light);
+
+  &-content {
+    @apply flex-1 w-1 flex gap-2 w-1 p-4;
+  }
+
+  &-title {
+    @apply text-dark dark:text-gray-dark;
+  }
+
+  &-desc {
+    @apply truncate text-dark/50 dark:text-gray/50;
+  }
+
+  &-info {
+    #{$root}-icon {
+      @apply text-primary;
+    }
+  }
+
+  &-success {
+    #{$root}-icon {
+      @apply text-success;
+      
+    }
+  }
+
+  &-warn {
+    #{$root}-icon {
+      @apply text-warning;
+      
+    }
+  }
+
+  &-danger {
+    #{$root}-icon {
+      @apply text-danger;
+    }
+  }
+
+  &-close {
+    @apply absolute right-3 top-3;
+  }
+  
+  &-confirm {
+    @apply flex-none flex flex-col border-l border-gray min-w-20 divide-y divide-gray dark:divide-black-light dark:border-black-light text-black dark:text-gray-dark;
+  }
+
+  &-button {
+    @apply flex w-full items-center justify-center border border-transparent px-4 py-2 text-sm focus:outline-none focus:text-primary bg-white hover:bg-gray-light;
+  }
+}
+
+.app-toast {
+  @include toast;
+}

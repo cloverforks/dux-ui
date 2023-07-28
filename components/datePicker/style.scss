@@ -1,0 +1,230 @@
+@import '../form/style.scss';
+@import '../popover/style.scss';
+@import '../button/style.scss';
+@import '../input/style.scss';
+
+$prefix: 'app-picker';
+
+@mixin picker {
+  $root: &;
+
+  // Input
+  @apply flex flex-grow ;
+  &-input {
+    @apply flex w-full;
+    input {
+      @include input;
+    }
+  }
+  &-suffix {
+    @apply flex items-center px-4;
+  }
+  &-disabled {
+    input {
+      @apply text-black/50 dark:text-gray/70;
+    }
+  }
+
+  // panel
+  &-dropdown {
+    @apply absolute text-sm z-1;
+    &-hidden {
+      @apply hidden;
+    }
+  }
+
+  &-panel {
+    @apply;
+    &-container {
+      @include popover;
+      @apply text-sm;
+      margin-left: 0 !important;
+    }
+    &-layout {
+      @apply ;
+    }
+  }
+  &-date-panel {
+    @apply flex flex-col;
+  }
+
+  // pael header
+  &-header {
+    @apply flex p-2 h-13 gap-1 border-b border-gray dark:border-black-light;
+    @apply text-black dark:text-gray-dark;
+    button {
+      @apply flex items-center justify-center rounded-lg whitespace-nowrap text-sm;
+      @apply hover:bg-gray-light focus-visible:ring-2 focus-visible:ring-primary/10;
+      @apply dark:(hover:bg-black-light);
+    }
+    &-super-prev-btn, &-prev-btn, &-super-next-btn, &-next-btn {
+      @apply px-3 text-sm;
+    }
+    &-view {
+      @apply flex-grow flex items-center justify-center px-2;
+      button {
+        @apply flex-grow flex items-center justify-center rounded-lg flex-nowarp p-2  text-sm;
+        @apply hover:bg-gray-light;
+      }
+    }
+  }
+
+  // panel content
+  &-body {
+    @apply p-4;
+  }
+
+  &-content {
+    @apply w-full  border-collapse border-spacing-0 py-2;
+    thead {
+      th {
+        @apply text-center p-0 pb-3 font-bold;
+      }
+    }
+    tbody {
+      td {
+        @apply text-center p-0;
+      }
+    }
+  }
+
+  // footer
+  &-footer {
+    @apply p-2 border-t border-gray dark:border-black-light;
+  }
+
+  &-now-btn {
+    @extend .app-btn;
+    @extend .app-btn-text;
+    @extend .app-btn-default;
+    @extend .app-btn-sm;
+  }
+
+  &-ok button, &-today-btn {
+    @extend .app-btn;
+    @extend .app-btn-text;
+    @extend .app-btn-primary;
+    @extend .app-btn-sm;
+  }
+
+  // time
+  &-time-panel {
+    @apply flex-grow;
+    & #{$root}-content {
+      @apply flex divide-x divide-gray dark:divide-black-light;
+    }
+
+    &-column {
+      @apply overflow-auto px-1 flex-grow h-66;
+  
+      &::-webkit-scrollbar {
+        width: 0
+      }
+    }
+
+    &-cell {
+      @apply px-2 py-1 text-center rounded-lg cursor-pointer;
+      @apply hover:bg-gray-light dark:hover:bg-black-light;
+      @apply text-black dark:text-gray-dark;
+
+      &-selected {
+        @apply bg-primary/10 text-primary hover:bg-primary/10;
+        @apply dark:(bg-primary/20  hover:bg-primary/20);
+      }
+    }
+
+  }
+  
+
+  // datetime
+  &-datetime-panel {
+    @apply flex divide-x divide-gray dark:divide-black-light;
+  }
+
+  // range
+  &-ranges {
+    @apply flex gap-2;
+    li {
+      @apply flex-grow;
+    }
+  }
+
+
+  &-range-separator {
+    @apply px-4 flex items-center;
+  }
+
+  &-panels {
+    @apply flex gap-2 flex-col lg:flex-row;
+    #{$root}-panel {
+      @apply flex-grow;
+    }
+  }
+
+  &-cell {
+    @apply text-gray-dark dark:text-gray/40;
+    &-in-view {
+      @apply text-black  dark:text-gray-dark;
+    }
+    &-inner {
+      @apply px-2 py-1.5 rounded-lg cursor-pointer;
+      @apply hover:bg-gray-light dark:hover:bg-black-light;
+    }
+    &-selected, &-range-end, &-range-start, &-range-hover-start, &-range-hover-end  {
+      #{$root}-cell-inner {
+        @apply  text-white bg-primary dark:bg-primary;
+      }
+    }
+    &-range-start, &-range-hover-start {
+      #{$root}-cell-inner {
+        @apply rounded-r-none;
+      }
+    }
+    &-range-end, &-range-hover-end {
+      #{$root}-cell-inner {
+        @apply rounded-l-none;
+      }
+    }
+    &-in-range, &-range-hover {
+      #{$root}-cell-inner {
+        @apply bg-primary/5 rounded-none text-black dark:(bg-primary/10 text-gray-dark);
+      }
+    }
+  }
+
+  // range week
+  &-week-panel-row {
+    &-range-start, &-range-end {
+      #{$root}-cell-inner {
+        @apply bg-primary/5 rounded-none;
+      }
+    }
+    &-range-start {
+      #{$root}-cell {
+        &:first-child {
+          #{$root}-cell-inner {
+            @apply rounded-l-lg bg-primary text-white;
+          }
+        }
+      }
+    }
+    &-range-end {
+      #{$root}-cell {
+        &:last-child {
+          #{$root}-cell-inner {
+            @apply rounded-r-lg bg-primary text-white;
+          }
+        }
+      }
+    }
+    &-range-hover {
+      #{$root}-cell-inner {
+        @apply bg-primary/5;
+      }
+    }
+  }
+}
+
+.app-picker {
+  @include picker;
+}

@@ -1,0 +1,28 @@
+@mixin card {
+  @apply bg-white shadow text-black rounded-lg dark:(bg-black text-gray-light);
+  
+  &-border {
+    @apply border border-gray dark:border-black-light shadow-none;
+  }
+  
+  &-header {
+    @apply flex items-center border-b px-4 py-4 justify-between border-gray dark:border-black-light;
+  }
+
+  &-title {
+    @apply p-0 m-0 font-semibold theme-text-primary text-base;
+  }
+  
+  &-desc {
+    @apply mt-1 text-black/50 dark:text-gray-dark text-sm;
+  }
+
+  &-content {
+    @apply text-sm p-6;
+  }
+
+}
+
+.app-card {
+  @include card;
+}

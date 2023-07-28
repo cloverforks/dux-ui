@@ -1,0 +1,30 @@
+@mixin empty{
+  $root: &;
+  @apply flex items-center w-full justify-center p-2;
+  
+  &-inner {
+    @apply flex gap-2;
+  }
+  
+  &-content {
+    @apply flex justify-center;
+  }
+  
+  &-vertical {
+    @apply flex-col items-center;
+    #{$root}-content {
+      @apply flex-col items-center;
+    }
+  }
+  
+  &-horizontal {
+    @apply flex-row;
+    #{$root}-content {
+      @apply flex-col;
+    }
+  }
+}
+
+.app-empty {
+  @include empty;
+}

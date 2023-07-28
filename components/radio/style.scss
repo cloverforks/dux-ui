@@ -1,0 +1,76 @@
+.app-radio {
+  @apply flex h-5 w-5 items-center justify-center rounded-full border dark:bg-black transition-all;
+  @apply focus:outline-none focus-visible:(ring-3 ring-primary/25);
+
+  &[data-state~="checked"] {
+    @apply bg-primary border-primary dark:bg-primary;
+  }
+  &[data-state~="unchecked"] {
+    @apply border-gray dark:border-black-light;
+    &::after {
+      @apply hidden;
+    }
+  }
+
+  &[data-disabled] {
+    @apply bg-gray border-gray dark:(bg-black-light border-black-light);
+  }
+
+  &::after {
+    @apply content-empty w-2 h-2 rounded-full bg-white;
+  }
+}
+
+.app-radio-group {
+  @apply flex flex-col flex-wrap gap-6 text-black dark:text-gray-dark text-sm;
+  &-horizontal {
+    @apply md:flex-row;
+  }
+  &-vertical {
+    @apply  gap-2;
+  }
+
+  &-extend {
+    .app-radio {
+      @apply absolute opacity-0;
+      &[data-state~="checked"] {
+        & ~ .app-radio-inner {
+          @apply border-primary bg-primary/5;
+        }
+        &:focus-visible {
+          & ~ .app-radio-inner {
+            @apply ring-3 ring-primary/25;
+          }
+        }
+      }
+      &[data-disabled] {
+        & ~ .app-radio-inner {
+          @apply opacity-70;
+        }
+      }
+    }
+    .app-radio-inner {
+      @apply flex-grow border rounded-lg px-3 py-3  flex gap-3 items-center;
+      @apply border-gray dark:border-black-light;
+    }
+
+    .app-radio-content {
+      @apply  flex flex-col gap-1;
+    }
+    .app-radio-label {
+      @apply text-base;
+    }
+    .app-radio-desc {
+      @apply text-black/50 dark:text-gray/50;
+    }
+  }
+  &-fill {
+    .app-radio-warp {
+      @apply flex-grow;
+    }
+  }
+}
+
+.app-radio-warp {
+  @apply flex gap-2 items-center cursor-pointer;
+}

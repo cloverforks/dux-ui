@@ -1,0 +1,29 @@
+@mixin menu {
+  @apply flex flex-col py-1;
+  &:hidden {
+    @apply hidden;
+  }
+
+  &-item {
+    @apply flex items-center gap-2 text-sm cursor-default px-4 py-2 outline-none text-black dark:text-gray focus-visible:(bg-gray-light dark:bg-gray/10) hover:(bg-gray-light dark:bg-gray/10) outline-none;
+
+    &[data-focus] {
+      @apply bg-gray-light dark:bg-gray/10;
+    }
+  
+    // &[data-state="open"] {
+    //   @apply bg-gray-light dark:bg-gray/10;
+    // }
+    &[data-selected] {
+      @apply text-primary;
+      [data-highlight] {
+        @apply text-primary;
+      }
+    }
+  }
+}
+
+
+.app-menu {
+  @include menu;
+}

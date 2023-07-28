@@ -1,0 +1,11 @@
+@mixin tooltip {
+  @apply bg-black rounded-lg text-gray dark:text-gray-dark py-2 px-4 text-sm shadow;
+  &-arrow {
+    --arrow-size: 12px;
+    --arrow-background: theme('colors.black.DEFAULT');
+  }
+}
+
+.app-tooltip {
+  @include tooltip;
+}

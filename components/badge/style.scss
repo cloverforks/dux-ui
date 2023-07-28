@@ -1,0 +1,43 @@
+@mixin badge {
+  @apply absolute right-0.5 top-0.5 z-1 block rounded-full text-sm text-white -translate-y-1/2 translate-x-1/2;
+
+  &-text {
+    @apply px-1.5;
+  }
+
+  &-dot {
+    @apply absolute p-0 w-full h-full border-initial rounded-full;
+  }
+
+  &-circle {
+    @apply right-1.5 top-1.5;
+  }
+
+  &-primary {
+    @apply bg-primary ring-white;
+  }
+
+  &-secondary {
+    @apply bg-secondary ring-white;
+  }
+
+  &-info {
+    @apply bg-info ring-white;
+  }
+
+  &-warn {
+    @apply bg-warning ring-white;
+  }
+
+  &-danger {
+    @apply bg-danger ring-white;
+  }
+
+  &-success {
+    @apply bg-success ring-white;
+  }
+}
+
+.app-badge {
+  @include badge;
+}

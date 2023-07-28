@@ -1,0 +1,40 @@
+@mixin alert-color($color) {
+  @apply bg-#{$color}/10 text-#{$color} dark:text-#{$color}-light dark:bg-#{$color}/15;
+}
+
+@mixin alert {
+  $root: &;
+  @apply p-4 py-4 rounded-lg  flex gap-4 items-start text-sm relative;
+
+  &-title {
+    @apply font-semibold text-base leading-5;
+  }
+  
+  &-body {
+    @apply flex flex-col gap-2 leading-5;
+  }
+  
+  &-info {
+    @include alert-color('primary');
+  }
+  
+  &-success {
+    @include alert-color('success');
+  }
+  
+  &-warn {
+    @include alert-color('warning');
+  }
+  
+  &-danger {
+    @include alert-color('danger');
+  }
+  
+  &-close {
+   @apply absolute right-2.5 top-2.5;
+  }
+}
+
+.app-alert {
+  @include alert;
+}

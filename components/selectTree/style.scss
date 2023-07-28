@@ -1,0 +1,49 @@
+@import '../select/style.scss';
+@import '../checkbox/style.scss';
+
+@mixin select-tree {
+  $root: &;
+  &-tree-list-holder-inner {
+    @apply flex flex-col py-1 text-sm;
+  }
+  &-tree-treenode {
+    @apply flex items-center cursor-pointer px-1 h-9 outline-none gap-2;
+    @apply text-black dark:text-gray focus-visible:(bg-gray-light dark:bg-gray/10) hover:(bg-gray-light dark:bg-gray/10);
+    &-selected {
+      @apply text-primary-dark font-semibold;
+    }
+  }
+  &-tree-indent {
+    @apply flex;
+  }
+  &-tree-indent-unit {
+    @apply w-4 flex;
+  }
+  &-tree-switcher {
+    @apply flex transition-all items-center justify-center w-4 h-4;
+    &::after {
+      content: "";
+      @apply i-tabler:chevron-right;
+    }
+    &_open {
+      @apply rotate-90;
+    }
+    &-noop {
+      &::after {
+        content: none;
+      }
+    }
+  }
+  &-tree-node-content-wrapper {
+    @apply flex-1 flex items-center h-full;
+  }
+  &-tree-checkbox {
+    @apply flex ;
+    @include checkbox;
+  }
+}
+
+.app-select {
+  @include select;
+  @include select-tree;
+}

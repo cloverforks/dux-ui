@@ -1,0 +1,47 @@
+@import '../form/style.scss';
+@import '../popover/style.scss';
+@import '../dropdown/style.scss';
+@import '../checkbox/style.scss';
+@import '../select/style.scss';
+
+@mixin cascader {
+  $root: &;
+  @include select;
+
+  &-dropdown {
+    @apply pointer-events-none;
+  }
+  
+  &-menus {
+    @apply flex gap-1 items-start;
+  }
+  
+  &-menu {
+    @apply flex flex-col min-w-40 py-1 max-h-50 overflow-auto pointer-events-auto gap-0.5;
+    @include popover;
+    &::-webkit-scrollbar {
+      width: 0;
+    }
+    &-item {
+      @extend .app-menu-item;
+      &-content {
+        @apply flex-grow w-1 truncate;
+      }
+      &-expand-icon {
+        @apply flex-none;
+      }
+      &-active {
+        @apply text-primary-dark bg-gray-light;
+      }
+    }
+  }
+  
+  
+  &-checkbox {
+    @include checkbox;
+  }
+}
+
+.app-cascader {
+  @include cascader;
+}

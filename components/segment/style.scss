@@ -1,0 +1,19 @@
+@mixin segment {
+  @apply inline-block border-none h-10 flex-inline items-center rounded-full bg-black/10 px-1 dark:bg-gray/20 text-sm;
+  
+  &-item, &-indicator {
+    @apply h-8 px-4 flex items-center;
+  }
+
+  &-item {
+    @apply  transition-all z-2 cursor-pointer  text-black dark:text-gray-dark data-[checked]:(text-white);
+  }
+
+  &-indicator {
+    @apply bg-primary z-1 h-8 rounded-full;
+  }
+}
+
+.app-segment {
+  @include segment;
+}

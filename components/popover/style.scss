@@ -1,0 +1,26 @@
+
+@mixin popover {
+  @apply rounded-lg bg-white shadow-lg border border-black/10  dark:bg-black dark:border-black-light text-black dark:text-gray text-sm outline-none;
+
+  &-position {
+    @apply z-10;
+  }
+
+  &-arrow {
+    --arrow-size: 12px;
+    --arrow-background: theme('colors.white');
+
+    .dark & {
+      --arrow-background: theme('colors.black.DEFAULT');
+    }
+
+    &-tip {
+      @apply border-t border-l border-gray dark:border-black-light;
+    }
+
+  }
+}
+
+.app-popover {
+  @include popover;
+}

@@ -1,0 +1,54 @@
+@mixin timeline {
+  $root: &;
+  @apply space-y-6 p-0 m-0;
+
+  &-item {
+    @apply flex items-start;
+
+    &#{$root}-active {
+      #{$root}-title {
+        @apply text-black dark:text-gray-dark;
+      }
+    }
+    &#{$root}-current {
+      #{$root}-title {
+        @apply text-primary-dark dark:text-primary;
+      }
+    }
+  }
+
+  &-title {
+    @apply text-black/50 dark:text-gray/50 block;
+  }
+
+  &-desc {
+    @apply text-sm text-black/50 dark:text-gray/50 block;
+  }
+
+  &-prefix {
+    @apply h-5 w-5 flex items-center justify-center relative mt-0.5;
+  }
+
+  &-icon {
+    @apply w-4 h-4 text-white  bg-primary rounded-full flex items-center justify-center p-0.5;
+  }
+
+  &-dot {
+  @apply h-2 w-2 rounded-full bg-gray-dark dark:bg-gray/50;
+  }
+
+  &-dot-active {
+    @apply h-4 w-4 absolute rounded-full bg-primary-light/30;
+  }
+  &-dot-active-bg {
+    @apply relative rounded-full block h-2 w-2 bg-primary dark:bg-primary;
+  }
+
+  &-content {
+    @apply ml-3 flex-grow text-base cursor-default flex justify-between;
+  }
+}
+
+.app-timeline {
+  @include timeline;
+}

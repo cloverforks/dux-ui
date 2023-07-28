@@ -1,0 +1,122 @@
+@mixin label-color($color) {
+  @apply text-#{$color} border-#{$color} bg-#{$color}/10 dark:(text-#{$color}-light bg-#{$color}-dark/20);
+}
+
+@mixin label {
+  $root: &;
+  
+  @apply rounded-full text-white;
+
+  &-inner {
+    @apply inline-flex items-center rounded-full px-4 h-8 text-sm whitespace-nowrap flex gap-2 cursor-default border;
+  }
+
+  &-default {
+    @apply text-black border-gray-dark bg-white dark:(text-gray-dark bg-gray/10 border-gray/20);
+  }
+
+  &-primary {
+    @include label-color(primary);
+  }
+
+  &-secondary {
+    @include label-color(secondary);
+  }
+
+  &-info {
+    @include label-color(info);
+  }
+
+  &-warn {
+    @include label-color(warning);
+  }
+
+  &-danger {
+    @include label-color(danger);
+  }
+
+  &-success {
+    @include label-color(success);
+  }
+
+  &-dot {
+    @apply h-1.8 w-1.8 rounded-full bg-white/40;
+  }
+
+
+  &-dot-default {
+    @apply bg-black/30 dark:bg-gray/30;
+  }
+
+  &-dot-primary {
+    @apply bg-primary;
+  }
+
+  &-dot-secondary {
+    @apply bg-secondary;
+  }
+
+  &-dot-info {
+    @apply bg-info;
+  }
+
+  &-dot-warn {
+    @apply bg-warning;
+  }
+
+  &-dot-danger {
+    @apply bg-danger;
+  }
+
+  &-dot-success {
+    @apply bg-success;
+  }
+
+  &-image {
+    @apply w-4 h-4;
+  }
+
+
+  &-sm {
+    @apply px-3 h-7 text-sm;
+  }
+
+  &-xs {
+    @apply px-2 h-6 text-xs;
+  }
+
+  &-narrow {
+    #{$root}-inner {
+      @apply pl-1.5 pr-3;
+    }
+    #{$root}-sm {
+      @apply pl-1 pr-2.5;
+    }
+    #{$root}-xs {
+      @apply pl-0.8 pr-2;
+    }
+  }
+
+
+  &-extra {
+    #{$root}-inner {
+      @apply pr-1.5;
+    }
+    #{$root}-sm {
+      @apply pr-1;
+    }
+    #{$root}-xs {
+      @apply pr-0.8;
+    }
+  }
+
+  &-rounded {
+    #{$root}-inner {
+      @apply rounded-lg;
+    }
+  }
+}
+
+.app-label {
+  @include label;
+}

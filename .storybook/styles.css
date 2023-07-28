@@ -1,0 +1,4 @@
+
+.docs-story, .sb-show-main {
+  @apply bg-gray-light dark:bg-black-dark;
+}

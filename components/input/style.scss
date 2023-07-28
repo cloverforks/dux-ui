@@ -1,0 +1,19 @@
+@mixin input {
+  $root: &;
+  @apply appearance-none outline-none bg-transparent flex-grow w-full text-sm px-3 text-black dark:text-gray;
+
+  &:disabled {
+    @apply text-opacity-50;
+  }
+  &:read-only {
+    @apply text-opacity-50;
+  }
+  &::placeholder {
+    @apply text-placeholder;
+  }
+
+}
+
+.app-input {
+  @include input;
+}

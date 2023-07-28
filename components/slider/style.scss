@@ -1,0 +1,29 @@
+.app-slider {
+  @apply relative flex items-center w-full;
+  &-track {
+    @apply relative flex-grow rounded-full h-1 bg-gray dark:bg-black-light;
+  }
+  &-range{
+    @apply absolute bg-primary dark:bg-primary-light rounded-full h-full;
+  }
+  &-thumb {
+    @apply w-5 h-5 bg-white dark:bg-black border-2 border-primary dark:border-primary-light rounded-full shadow outline-none;
+    @apply focus-visible:(ring-3 ring-primary/25 dark:ring-primary/50);
+    @apply hover:(ring-3 ring-primary/20);
+  }
+
+  &[data-disabled] {
+    .app-slider {
+      &-range{
+        @apply bg-primary/50 dark:bg-gray-dark/50;
+      }
+      &-thumb {
+        @apply bg-gray-light dark:bg-black border-primary/70;
+      }
+    }
+  }
+
+  &-group {
+    @apply text-sm mt-2 mr-4 text-black dark:text-gray-dark ;
+  }
+}

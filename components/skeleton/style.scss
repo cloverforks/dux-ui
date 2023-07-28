@@ -1,0 +1,19 @@
+@mixin skeleton {
+  @apply flex gap-2 items-center;
+
+  &-content {
+    @apply flex-grow flex flex-col gap-2;
+  }
+
+  &-text {
+    @apply rounded-lg dark:bg-black-light bg-gray/60;
+  }
+
+  &-image {
+    @apply bg-gray/60 dark:bg-black-light;
+  }
+}
+
+.app-skeleton {
+  @include skeleton;
+}

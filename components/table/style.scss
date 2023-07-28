@@ -1,0 +1,55 @@
+
+.app-table {
+  @apply w-full  text-sm;
+
+  thead {
+    @apply ;
+  }
+
+  tbody {
+
+    tr {
+      &:last-child {
+        td {
+          @apply border-none;
+        }
+      }
+
+      &:nth-child(even) {
+        td {
+          @apply bg-black/5;
+        }
+      }
+    }
+
+  }
+
+  th {
+    @apply px-4 py-3.5 text-left whitespace-nowrap font-semibold text-black dark:text-gray-dark bg-black/10;
+  }
+
+  tr {
+    @apply rounded-md;
+
+    th,
+    td {
+      &:first-child {
+        @apply rounded-l-lg;
+      }
+
+      &:last-child {
+        @apply rounded-r-lg;
+      }
+    }
+
+    td {}
+  }
+
+  td {
+    @apply relative whitespace-nowrap p-4 text-gray-800 dark:text-gray-600  bg-transparent dark:bg-dark-2;
+  }
+
+  .fixed-column {
+    @apply sticky right-0;
+  }
+}

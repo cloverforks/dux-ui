@@ -1,0 +1,43 @@
+.app-loading {
+  @apply;
+}
+
+.app-loading-default {
+  @apply text-black/80 dark:text-gray-dark;
+
+}
+.app-loading-primary {
+  @apply text-primary;
+  
+}
+.app-loading-secondary {
+  @apply text-secondary;
+  
+}
+.app-loading-info {
+  @apply text-info;
+  
+}
+.app-loading-warn {
+  @apply text-warning;
+  
+}
+.app-loading-danger {
+  @apply text-danger;
+  
+}
+.app-loading-success {
+  @apply text-success;
+  
+}
+.app-loading-white {
+  @apply text-white;
+}
+
+.app-loading-container {
+  @apply relative;
+}
+
+.app-loading-screen {
+  @apply absolute w-full h-full top-0 left-0 flex items-center justify-center rounded-lg bg-white/50 dark:bg-black/80;
+}

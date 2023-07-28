@@ -1,0 +1,48 @@
+@mixin form-element {
+  @apply flex outline-none appearance-none min-h-10 text-sm w-full items-stretch border-1 transition rounded-lg shadow-sm align-middle;
+  @apply text-black bg-white border-gray placeholder-black/50;
+  @apply dark:(text-gray bg-gray/5 border-black-light placeholder-gray/50);
+  @apply focus-within:(ring-4 ring-offset-0 border-primary-dark ring-primary/10 outline-none);
+  @apply focus-within:(dark:border-primary dark:ring-primary/30);
+  @apply hover:(border-primary);
+  &-error {
+    @apply border-danger focus-within:(border-danger ring-danger/10) hover:(border-danger);
+    @apply dark:(border-danger focus-within:(border-danger ring-danger/20 ));
+  }
+  &-noborder {
+    @apply border-none;
+  }
+
+  &-warp {
+    @apply flex flex-grow;
+  }
+
+  &-prefix, &-suffix {
+    @apply flex-none flex items-center gap-4;
+  }
+
+  &-prefix {
+    @apply pl-4;
+  }
+
+  &-suffix {
+    @apply pr-4;
+  }
+
+  &-before, &-after {
+    @apply flex-none flex items-center px-4;
+  }
+
+  &-before {
+    @apply border-r border-gray dark:border-gray/20;
+  }
+
+  &-after {
+    @apply border-l border-gray dark:border-gray/20;
+  }
+
+}
+
+.app-form-element {
+  @include form-element;
+}

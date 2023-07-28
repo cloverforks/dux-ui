@@ -1,0 +1,58 @@
+@mixin avatar-color($color) {
+  @apply text-#{$color}-dark bg-#{$color}-light/30 dark:(text-#{$color}-light bg-#{$color}-dark/20);
+}
+
+@mixin avatar {
+  @apply relative cursor-default  bg-gray border-gray  dark:(bg-black-light border-black-light);
+
+  &-circle {
+    @apply rounded-full;
+  }
+
+  &-rounded {
+    @apply rounded-md;
+  }
+
+  &-default {
+    @apply  text-black bg-gray dark:(text-gray-dark bg-gray-dark/10);
+  }
+
+  &-primary {
+    @include avatar-color(primary);
+  }
+
+  &-secondary {
+    @include avatar-color(secondary);
+  }
+
+  &-info {
+    @include avatar-color(info);
+  }
+
+  &-warn {
+    @include avatar-color(warning);
+  }
+
+  &-danger {
+    @include avatar-color(danger);
+  }
+
+  &-success {
+    @include avatar-color(success);
+  }
+
+  &-image {
+    @apply object-cover border-inherit;
+  }
+
+  &-text {
+    @apply flex items-center justify-center h-inherit w-inherit text-sm;
+    &[hidden] {
+      @apply hidden;
+    }
+  }
+}
+
+.app-avatar {
+  @include avatar;
+}

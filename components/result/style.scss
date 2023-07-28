@@ -1,0 +1,21 @@
+.app-result {
+  @apply flex items-center w-full justify-center p-10;
+}
+.app-result-inner {
+  @apply flex items-center justify-center flex-col gap-1 max-w-100;
+}
+.app-result-text {
+  @apply text-7xl font-bold bg-gradient-to-r from-primary text-transparent bg-clip-text to-info;
+}
+
+.app-result-title {
+  @apply text-lg font-bold text-dark dark:text-gray;
+}
+
+.app-result-desc {
+  @apply text-gray-dark;
+}
+
+.app-result-footer {
+  @apply flex gap-2 mt-4;
+}

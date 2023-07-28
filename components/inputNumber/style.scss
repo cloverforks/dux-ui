@@ -1,0 +1,27 @@
+@import '../input/style.scss';
+
+@mixin input-number {
+  $root: &;
+
+  &-field {
+    @include input;
+  }
+
+  &-control {
+    @apply flex flex-row gap-2;
+  }
+  
+  &-inc, &-dec {
+    @apply flex items-center h-4;
+  }
+
+  &-inc {
+  }
+
+  &-dec {
+  }
+}
+
+.app-input-number {
+  @include input-number;
+}

@@ -1,0 +1,45 @@
+@mixin tab {
+  @apply border-b px-2 border-gray dark:border-black-light; 
+
+  &-layout {
+    @apply h-14  flex  gap-2 flex-grow whitespace-nowrap  flex-shrink;
+  }
+
+  &-list {
+    @apply flex-grow flex flex-row items-stretch gap-2 flex-shrink;
+  }
+
+  &-title {
+    @apply flex items-center px-4 theme-text-primary font-semibold;
+  }
+
+  &-append {
+    @apply flex items-center px-4;
+  }
+
+  &-extra {
+    @apply flex items-center;
+  }
+
+  &-item {
+    @apply flex flex-row items-center text-sm justify-center cursor-pointer text-black dark:text-gray-dark outline-none bg-transparent;
+
+    &:hover {
+      @apply text-primary;
+    }
+  }
+  &-label {
+    @apply rounded-full px-4;
+  }
+
+  &-active {
+    @apply text-primary dark:text-primary; 
+  }
+  &-active-dot {
+    @apply absolute bottom-0 h-1 w-5 rounded-t bg-primary;
+  }
+}
+
+.app-tab {
+  @include tab;
+}
